@@ -1,0 +1,44 @@
+<html>
+<head>
+</head>
+<body>
+<canvas id="canvas" width="10000" height="10000" />
+<script type="text/javascript">
+
+var canvas = document.getElementById('canvas');
+var w = canvas.width;
+var h = canvas.height;
+var context = canvas.getContext('2d');
+context.strokeStyle = "rgba(0,0,0,0.05)";
+x = 0;
+y = 0;
+a = 1.42;
+b = 0.3;
+d = 1;
+for (var t = 0; t < 10000; t++) {
+    var x0 = x;
+    var y0 = y;
+    x = y0 + 1 - a * x0 * x0;
+    y = b * x0;
+    d = Math.sqrt((x-x0)*(x-x0) + (y-y0)*(y-y0));
+    console.log(d);
+    context.beginPath();
+    context.arc(w/2 + 1000 * x, h/2 + 1000 * y, 100 * d, 0, Math.PI*2, true);
+    context.closePath();
+    context.stroke();
+}
+console.log("Done");
+
+function setPixel(d, x, y, c) {
+    var index = (w * y + x) * 4;
+    for (var i = 0; i < 4; i++) {
+        console.log((index + i) + ' ' + c[i]);
+        d[index + i] = c[i];
+    }
+    return d;
+}
+
+
+</script>
+</body>
+</html>
