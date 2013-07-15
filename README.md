@@ -1,4 +1,4 @@
-henon-velocity
+henon_velocity
 ==============
 
 This is a Processing sketch that renders the [Hénon Map](http://en.wikipedia.org/wiki/Hénon_map), using the canonical parameter values a=1.4 and b=0.3. Instead of rendering points, it renders circles with the radius of the circle being proportional to the distance the point travelled from its previous position, and the colour depending on whether it travelled left or right.
